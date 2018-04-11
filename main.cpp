@@ -12,13 +12,14 @@ int main()
 {
   int periods;
   int teams;
+  vector< vector<int> >scoreboard;
 
   cout<<"How many competitors? ";
   cin>>teams;
   cout<<"How many scoring periods? ";
   cin>>periods;
 
-  if( teams < MIN_TEAMS || periods < MIN_PERIODS || 
+  if( teams < MIN_TEAMS || periods < MIN_PERIODS ||
       teams > MAX_TEAMS || periods > MAX_PERIODS )
   {
     cout<<"Must have between "<<MIN_TEAMS<<" and "<<MAX_TEAMS<<" competitors.\n";
@@ -27,8 +28,33 @@ int main()
   }
   else
   {
+	scoreboard.resize(teams);
+	for(int row=0; row<scoreboard.size(); row++)
+	{
+		scoreboard[row].resize(periods);
+	}
+	for(int row=0; row<scoreboard.size(); row++)
+	{
+		for(int column=0; column<scoreboard.size(); column++)
+		{
+			scoreboard[row][column]=0;
+		}
+	}
+	cout<<"SCOREBOARD"<<endl;
+
+	for(int row=0; row<scoreboard.size(); row++)
+	{
+	cout<<"Player "<<row+1<<": ";
+	for(int column=0; column<scoreboard.size(); column++)
+	{
+		cout<<scoreboard[row][column]<<"|";
+	}
+	cout<<endl;
+	}
+
+
    //make scoreboard and fill it with zeros
-  
+
    //once created, display the scoreboard
   }
   return 0;
